@@ -6,18 +6,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DAO for Product Revenue Statistics
- * Aggregates data from tblBillDetail
- */
 public class ProductStatisticsDAO {
 
-    /**
-     * Get product revenue statistics for a date range
-     * @param startDate Start date
-     * @param endDate End date
-     * @return List of ProductStatistics
-     */
     public List<ProductStatistics> getProductRevenueStats(Date startDate, Date endDate) {
         List<ProductStatistics> stats = new ArrayList<>();
         String sql = "SELECT " +

@@ -6,18 +6,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DAO for Bill Details by Product
- */
 public class BillForProductDAO {
 
-    /**
-     * Get all bill details for a specific product within a date range
-     * @param productId Product ID
-     * @param startDate Start date
-     * @param endDate End date
-     * @return List of BillDetail
-     */
     public List<BillDetail> getBillForProduct(int productId, Date startDate, Date endDate) {
         List<BillDetail> billDetails = new ArrayList<>();
         String sql = "SELECT " +

@@ -1,4 +1,3 @@
-<%-- Created by IntelliJ IDEA. User: Lenovo Date: 22/10/2025 Time: 01:21 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -102,25 +101,70 @@
         border-radius: 5px;
         margin-bottom: 20px;
       }
+      .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        min-width: 300px;
+        background-color: #28a745;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        display: none;
+        animation: slideIn 0.3s ease-out;
+      }
+      .toast.show {
+        display: block;
+      }
+      .toast-header {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+      }
+      .toast-header::before {
+        content: "✓";
+        margin-right: 10px;
+        font-size: 24px;
+      }
+      .toast-body {
+        font-size: 14px;
+      }
+      @keyframes slideIn {
+        from {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slideOut {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+      }
+      .toast.hiding {
+        animation: slideOut 0.3s ease-in;
+      }
     </style>
   </head>
   <body>
+    <div id="toast" class="toast">
+      <div class="toast-header">Đăng ký thành công!</div>
+      <div class="toast-body">Chào mừng bạn đã gia nhập SuperMarket.</div>
+    </div>
+
     <div class="container">
-      <% if (request.getAttribute("successMessage") != null) { %>
-      <h2 style="color: #28a745">✓ Đăng ký thành công!</h2>
-      <div class="message success">
-        <strong><%= request.getAttribute("successMessage") %></strong>
-        <p>
-          Chào mừng <%= request.getAttribute("fullname") != null ?
-          request.getAttribute("fullname") : "thành viên mới" %>
-        </p>
-      </div>
-      <a
-        href="<%= request.getContextPath() %>/jsp/CustomerHomeView.jsp"
-        class="btn-back"
-        >Vào trang chủ</a
-      >
-      <% } else { %>
       <h2>Đăng ký thành viên mới</h2>
       <form action="<%= request.getContextPath() %>/register" method="post">
         <div class="form-group">
@@ -150,7 +194,6 @@
         <button type="submit" class="btn-register">Đăng ký</button>
       </form>
 
-      <!-- Nút quay về trang chủ khách hàng -->
       <a
         href="<%= request.getContextPath() %>/jsp/CustomerHomeView.jsp"
         class="btn-back"
@@ -161,7 +204,30 @@
       <div class="message error">
         <%= request.getAttribute("errorMessage") %>
       </div>
-      <% } %> <% } %>
+      <% } %>
     </div>
+
+    <% if (request.getAttribute("successMessage") != null) { %>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        const toast = document.getElementById("toast");
+        const fullname =
+          '<%= request.getAttribute("fullname") != null ? request.getAttribute("fullname") : "bạn" %>';
+        toast.querySelector(".toast-body").textContent =
+          "Chào mừng " + fullname + " đã gia nhập SuperMarket.";
+
+        toast.classList.add("show");
+
+        setTimeout(function () {
+          toast.classList.add("hiding");
+          setTimeout(function () {
+            toast.classList.remove("show", "hiding");
+            window.location.href =
+              "<%= request.getContextPath() %>/jsp/CustomerHomeView.jsp";
+          }, 300);
+        }, 5000);
+      });
+    </script>
+    <% } %>
   </body>
 </html>

@@ -206,13 +206,7 @@
                     <form id="reportForm" method="post" onsubmit="return handleSubmit(event)">
                         <div class="report-option">
                             <label class="d-flex align-items-center">
-                                <input 
-                                    type="radio" 
-                                    name="reportType" 
-                                    value="productRevenue" 
-                                    checked
-                                    class="me-3"
-                                />
+                                <input type="radio" name="reportType" value="productRevenue" checked class="me-3" />
                                 <div>
                                     <h5 class="mb-1">Thống kê mặt hàng theo doanh thu</h5>
                                 </div>
@@ -220,33 +214,17 @@
                         </div>
                         <div class="report-option">
                             <label class="d-flex align-items-center">
-                                <input 
-                                    type="radio" 
-                                    name="reportType" 
-                                    value="supplierRevenue"
-                                    disabled
-                                    class="me-3"
-                                />
+                                <input type="radio" name="reportType" value="supplierRevenue" disabled class="me-3" />
                                 <div>
-                                    <h5 class="mb-1">
-                                        Thống kê nhà cung cấp
-                                    </h5>
+                                    <h5 class="mb-1">Thống kê nhà cung cấp</h5>
                                 </div>
                             </label>
                         </div>
-                        <div class="report-option ">
+                        <div class="report-option">
                             <label class="d-flex align-items-center">
-                                <input 
-                                    type="radio" 
-                                    name="reportType" 
-                                    value="timeRevenue"
-                                    disabled
-                                    class="me-3"
-                                />
+                                <input type="radio" name="reportType" value="timeRevenue" disabled class="me-3" />
                                 <div>
-                                    <h5 class="mb-1">
-                                    Thống kê doanh thu theo thời gian
-                                    </h5>
+                                    <h5 class="mb-1">Thống kê doanh thu theo thời gian</h5>
                                 </div>
                             </label>
                         </div>

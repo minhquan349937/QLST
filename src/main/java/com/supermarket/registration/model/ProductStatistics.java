@@ -1,18 +1,11 @@
 package com.supermarket.registration.model;
 
-/**
- * Model class for Product Revenue Statistics
- * Aggregates data from 3 tables:
- * - tblBillDetail (chứa quantity và lineTotal)
- * - tblProduct (chứa id và name)
- * - tblBill (chứa date để lọc theo khoảng thời gian)
- */
 public class ProductStatistics {
-    private int productId;           // từ tblProduct.id
-    private String productName;      // từ tblProduct.name
-    private int totalQuantity;       // SUM(tblBillDetail.quantity)
-    private double totalRevenue;     // SUM(tblBillDetail.lineTotal)
-    private int transactionCount;    // COUNT(DISTINCT tblBill.id)
+    private int productId;
+    private String productName;
+    private int totalQuantity;
+    private double totalRevenue;
+    private int transactionCount;
 
     public ProductStatistics() {
     }

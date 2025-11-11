@@ -1,16 +1,8 @@
 package com.supermarket.registration.model;
 
-/**
- * Model class for Customer
- * Maps to tblCustomer:
- * - id (tblCustomer.id)
- * - address (tblCustomer.address)
- * 
- * Linked to tblUser through customer registration process
- */
 public class Customer {
-    private int id;                  // từ tblCustomer.id
-    private String address;          // từ tblCustomer.address
+    private int id;
+    private String address;
 
     public Customer() {
     }
@@ -20,7 +12,6 @@ public class Customer {
         this.address = address;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }

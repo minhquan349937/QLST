@@ -26,19 +26,16 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String phoneNumber = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
-        String agreedToTerms = request.getParameter("agreedToTerms");
 
         if (fullname == null || fullname.isEmpty() || username == null || username.isEmpty() ||
             password == null || password.isEmpty() || email == null || email.isEmpty() ||
-            phoneNumber == null || phoneNumber.isEmpty() || agreedToTerms == null || !agreedToTerms.equals("true")) {
-            request.setAttribute("errorMessage", "Vui lòng điền đầy đủ và chấp nhận các điều khoản.");
+            phoneNumber == null || phoneNumber.isEmpty()) {
+            request.setAttribute("errorMessage", "Vui lòng điền đầy đủ thông tin.");
             request.getRequestDispatcher("/jsp/RegisterMemberView.jsp").forward(request, response);
             return;
         }
 
-        if (userDAO.checkIfUserExists(username, phoneNumber).equals("none")) {
-            // Có thể tiếp tục đăng ký
-        } else {
+        if (!userDAO.checkIfUserExists(username, phoneNumber).equals("none")) {
             String errorMsg = "";
             String checkResult = userDAO.checkIfUserExists(username, phoneNumber);
             
@@ -59,7 +56,7 @@ public class UserServlet extends HttpServlet {
         Customer customer = new Customer(0, address, "");
 
         if (userDAO.saveNewCustomer(user, customer)) {
-            request.setAttribute("successMessage", "Đăng ký thành công! Chào mừng bạn gia nhập SuperMarket.");
+            request.setAttribute("successMessage", "Đăng ký thành công.");
             request.setAttribute("fullname", fullname);
             request.getRequestDispatcher("/jsp/RegisterMemberView.jsp").forward(request, response);
         } else {

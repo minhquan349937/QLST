@@ -2,20 +2,13 @@ package com.supermarket.registration.model;
 
 import java.util.Date;
 
-/**
- * Model class for Bill For Product
- * Maps to 2 tables:
- * - tblBill (id, date)
- * - tblBillDetail (quantity, unitPrice, lineTotal)
- * - tblProduct (productName)
- */
 public class BillForProduct {
-    private int billId;              // từ tblBill.id
-    private Date billDate;           // từ tblBill.date
-    private int quantity;            // từ tblBillDetail.quantity
-    private double unitPrice;        // từ tblBillDetail.unitPrice
-    private double lineTotal;        // từ tblBillDetail.lineTotal
-    private String productName;      // từ tblProduct.name
+    private int billId;
+    private Date billDate;
+    private int quantity;
+    private double unitPrice;
+    private double lineTotal;
+    private String productName;
 
     public BillForProduct() {
     }

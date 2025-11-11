@@ -58,7 +58,6 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
         font-weight: 600;
       }
 
-      /* Format date input */
       input[type="date"] {
         position: relative;
       }
@@ -146,6 +145,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                       </tr>
                     </thead>
                     <tbody>
+                      <c:set var="grandTotalQuantity" value="0" />
+                      <c:set var="grandTotalRevenue" value="0" />
                       <c:forEach
                         var="stat"
                         items="${statistics}"
@@ -191,12 +192,35 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                             <a
                               href="<%= request.getContextPath() %>/billDetail?productId=${stat.productId}&productName=${stat.productName}&startDate=${startDate}&endDate=${endDate}"
                               class="btn btn-sm btn-outline-primary"
+                              >Xem chi tiết</a
                             >
-                              Xem chi tiết
-                            </a>
                           </td>
                         </tr>
+                        <c:set
+                          var="grandTotalQuantity"
+                          value="${grandTotalQuantity + stat.totalQuantity}"
+                        />
+                        <c:set
+                          var="grandTotalRevenue"
+                          value="${grandTotalRevenue + stat.totalRevenue}"
+                        />
                       </c:forEach>
+
+                      <tr
+                        class="table-info fw-bold"
+                        style="background-color: #cfe2ff"
+                      >
+                        <td colspan="3" class="text-end">Tổng cộng:</td>
+                        <td class="text-end">${grandTotalQuantity}</td>
+                        <td class="text-end">
+                          <fmt:formatNumber
+                            value="${grandTotalRevenue}"
+                            pattern="#,###"
+                          />
+                          đ
+                        </td>
+                        <td></td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -232,7 +256,6 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
       crossorigin="anonymous"
     ></script>
     <script>
-      // Set default dates if not set
       window.addEventListener("DOMContentLoaded", function () {
         const startDateInput = document.getElementById("startDate");
         const endDateInput = document.getElementById("endDate");
@@ -252,7 +275,6 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
           endDateInput.value = today.toISOString().split("T")[0];
         }
 
-        // Format date display as dd/mm/yyyy
         formatDateInputs();
       });
 
@@ -266,7 +288,6 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
         const startDateInput = document.getElementById("startDate");
         const endDateInput = document.getElementById("endDate");
 
-        // Add event listeners to show formatted date
         startDateInput.addEventListener("change", function () {
           const formattedDate = formatDateDisplay(this.value);
           console.log("Ngày bắt đầu: " + formattedDate);

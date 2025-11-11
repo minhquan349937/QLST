@@ -16,7 +16,6 @@
     </properties>
 
     <dependencies>
-        <!-- Add your JDBC driver dependency here -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -28,7 +27,6 @@
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
-        <!-- JSTL for JSP pages (packaged into the WAR) -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -38,11 +36,6 @@
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-impl</artifactId>
             <version>1.2.5</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
         </dependency>
     </dependencies>
 

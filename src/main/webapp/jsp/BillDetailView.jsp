@@ -6,7 +6,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chi tiết giao dịch mặt hàng</title>
+    <title>Chi tiết giao dịch mặt hàng ${productName}</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -82,7 +82,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
         <div class="col-12">
           <div class="card card-surface">
             <div class="card-body p-4">
-              <h3 class="mb-4">Chi tiết giao dịch mặt hàng</h3>
+              <h3 class="mb-4">Chi tiết giao dịch mặt hàng: ${productName}</h3>
 
               <c:if test="${not empty billDetails}">
                 <div class="table-responsive">
@@ -170,9 +170,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                 <a
                   href="<%= request.getContextPath() %>/productStatistic?startDate=${startDate}&endDate=${endDate}"
                   class="btn btn-primary"
+                  >Quay lại</a
                 >
-                  Quay lại
-                </a>
               </div>
             </div>
           </div>

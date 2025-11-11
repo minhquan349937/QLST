@@ -12,9 +12,6 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
-/**
- * Servlet for Product Revenue Statistics
- */
 @WebServlet("/productStatistic")
 public class ProductStatisticServlet extends HttpServlet {
 
@@ -49,7 +46,6 @@ public class ProductStatisticServlet extends HttpServlet {
             request.setAttribute("startDate", startDateStr);
             request.setAttribute("endDate", endDateStr);
 
-            // Forward to view
             request.getRequestDispatcher("/jsp/ProductRevenueReportView.jsp").forward(request, response);
 
         } catch (IllegalArgumentException e) {

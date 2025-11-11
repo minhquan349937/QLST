@@ -4,7 +4,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>Trang chủ siêu thị</title>
-
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -34,20 +33,18 @@
         width: 420px;
       }
 
-      /* THAY ĐỔI 1: Đây là H2 bên trong thẻ */
       .card-title {
         font-weight: 700;
         color: #0d6efd;
         margin-bottom: 2rem;
-        font-size: 1.75rem; /* Nhỏ hơn H1 */
+        font-size: 1.75rem;
       }
 
-      /* THAY ĐỔI 2: Đây là H1 bên ngoài (tiêu đề chính) */
       .page-title {
         font-weight: 700;
         color: #343a40;
         margin-bottom: 1.5rem;
-        font-size: 2.5rem; /* <-- Làm cho nó to hơn */
+        font-size: 2.5rem;
       }
 
       .btn-primary {
@@ -75,14 +72,11 @@
 
     <div class="home-card">
       <h2 class="card-title">Trang chủ quản lý</h2>
-
       <a
         href="<%= request.getContextPath() %>/jsp/ReportView.jsp"
         class="btn btn-primary"
+        >Xem thống kê</a
       >
-        Xem thống kê
-      </a>
-
       <div class="footer">© 2025 SuperMarket</div>
     </div>
 

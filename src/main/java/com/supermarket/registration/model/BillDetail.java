@@ -2,22 +2,15 @@ package com.supermarket.registration.model;
 
 import java.sql.Date;
 
-/**
- * Model class for Bill Detail
- * Maps to 3 tables:
- * - tblBillDetail (bảng chính: id, billId, productId, quantity, unitPrice, lineTotal)
- * - tblBill (lấy billDate từ tblBill.date)
- * - tblProduct (lấy productName từ tblProduct.name)
- */
 public class BillDetail {
-    private int id;                  // từ tblBillDetail.id
-    private int billId;              // từ tblBillDetail.tblBillId
-    private Date billDate;           // từ tblBill.date
-    private int productId;           // từ tblBillDetail.tblProductId
-    private String productName;      // từ tblProduct.name
-    private int quantity;            // từ tblBillDetail.quantity
-    private int unitPrice;           // từ tblBillDetail.unitPrice
-    private int lineTotal;           // từ tblBillDetail.lineTotal
+    private int id;
+    private int billId;
+    private Date billDate;
+    private int productId;
+    private String productName;
+    private int quantity;
+    private int unitPrice;
+    private int lineTotal;
 
     public BillDetail() {
     }
