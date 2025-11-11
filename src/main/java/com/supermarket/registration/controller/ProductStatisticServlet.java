@@ -23,9 +23,7 @@ public class ProductStatisticServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String startDateStr = request.getParameter("startDate");
         String endDateStr = request.getParameter("endDate");
 
@@ -49,7 +47,6 @@ public class ProductStatisticServlet extends HttpServlet {
             request.getRequestDispatcher("/jsp/ProductRevenueReportView.jsp").forward(request, response);
 
         } catch (IllegalArgumentException e) {
-            request.setAttribute("error", "Định dạng ngày không hợp lệ");
             request.getRequestDispatcher("/jsp/ProductRevenueReportView.jsp").forward(request, response);
         }
     }

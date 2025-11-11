@@ -5,18 +5,15 @@ public class ProductStatistics {
     private String productName;
     private int totalQuantity;
     private double totalRevenue;
-    private int transactionCount;
 
     public ProductStatistics() {
     }
 
-    public ProductStatistics(int productId, String productName, int totalQuantity, 
-                           double totalRevenue, int transactionCount) {
+    public ProductStatistics(int productId, String productName, int totalQuantity, double totalRevenue) {
         this.productId = productId;
         this.productName = productName;
         this.totalQuantity = totalQuantity;
         this.totalRevenue = totalRevenue;
-        this.transactionCount = transactionCount;
     }
 
     public int getProductId() {
@@ -51,14 +48,6 @@ public class ProductStatistics {
         this.totalRevenue = totalRevenue;
     }
 
-    public int getTransactionCount() {
-        return transactionCount;
-    }
-
-    public void setTransactionCount(int transactionCount) {
-        this.transactionCount = transactionCount;
-    }
-
     @Override
     public String toString() {
         return "ProductStatistics{" +
@@ -66,7 +55,6 @@ public class ProductStatistics {
                 ", productName='" + productName + '\'' +
                 ", totalQuantity=" + totalQuantity +
                 ", totalRevenue=" + totalRevenue +
-                ", transactionCount=" + transactionCount +
                 '}';
     }
 }

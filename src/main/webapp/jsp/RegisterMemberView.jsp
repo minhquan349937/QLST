@@ -161,7 +161,6 @@
   <body>
     <div id="toast" class="toast">
       <div class="toast-header">Đăng ký thành công!</div>
-      <div class="toast-body">Chào mừng bạn đã gia nhập SuperMarket.</div>
     </div>
 
     <div class="container">
@@ -211,19 +210,12 @@
     <script>
       window.addEventListener("DOMContentLoaded", function () {
         const toast = document.getElementById("toast");
-        const fullname =
-          '<%= request.getAttribute("fullname") != null ? request.getAttribute("fullname") : "bạn" %>';
-        toast.querySelector(".toast-body").textContent =
-          "Chào mừng " + fullname + " đã gia nhập SuperMarket.";
-
         toast.classList.add("show");
 
         setTimeout(function () {
           toast.classList.add("hiding");
           setTimeout(function () {
             toast.classList.remove("show", "hiding");
-            window.location.href =
-              "<%= request.getContextPath() %>/jsp/CustomerHomeView.jsp";
           }, 300);
         }, 5000);
       });

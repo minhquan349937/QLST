@@ -231,7 +231,7 @@
 
                         <div class="btn-container">
                             <button type="submit" class="btn btn-primary">Xem báo cáo</button>
-                            <a href="<%= request.getContextPath() %>/jsp/AdminDashboardView.jsp" class="btn btn-outline-secondary">Quay lại Dashboard</a>
+                            <a href="<%= request.getContextPath() %>/jsp/AdminDashboardView.jsp" class="btn btn-outline-secondary">Quay lại</a>
                         </div>
                     </form>
                 </div>

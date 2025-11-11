@@ -160,31 +160,31 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                           <td class="text-end">
                             <c:choose>
                               <c:when test="${stat.totalRevenue >= 10000000}">
-                                <span class="revenue-high">
-                                  <fmt:formatNumber
+                                <span class="revenue-high"
+                                  ><fmt:formatNumber
                                     value="${stat.totalRevenue}"
                                     pattern="#,###"
                                   />
-                                  đ
-                                </span>
+                                  đ</span
+                                >
                               </c:when>
                               <c:when test="${stat.totalRevenue >= 1000000}">
-                                <span class="revenue-medium">
-                                  <fmt:formatNumber
+                                <span class="revenue-medium"
+                                  ><fmt:formatNumber
                                     value="${stat.totalRevenue}"
                                     pattern="#,###"
                                   />
-                                  đ
-                                </span>
+                                  đ</span
+                                >
                               </c:when>
                               <c:otherwise>
-                                <span class="revenue-low">
-                                  <fmt:formatNumber
+                                <span class="revenue-low"
+                                  ><fmt:formatNumber
                                     value="${stat.totalRevenue}"
                                     pattern="#,###"
                                   />
-                                  đ
-                                </span>
+                                  đ</span
+                                >
                               </c:otherwise>
                             </c:choose>
                           </td>
